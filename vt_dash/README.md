@@ -1,33 +1,99 @@
-## Instalação
-Você pode clonar este repositório OU baixar o .zip
+# 🐳 vt_docker_dash
 
-Ao descompactar, é necessário rodar o **composer** pra instalar as dependências e gerar o *autoload*.
+Projeto de painel PHP com suporte a Docker, MySQL e Composer.
 
-Vá até a pasta do projeto, pelo *prompt/terminal* e execute:
-> composer install
+---
 
-Depois é só aguardar.
+## 🚀 Tecnologias usadas
 
-## Configuração
-Todos os arquivos de **configuração** e aplicação estão dentro da pasta *src*.
+- PHP 8.2 + Apache
+- MySQL 8.0
+- Composer (gerenciador de dependências PHP)
+- Docker + Docker Compose
 
-As configurações de Banco de Dados e URL estão no arquivo *src/Config.php*
+---
 
-É importante configurar corretamente a constante *BASE_DIR*:
-> const BASE_DIR = '/**PastaDoProjeto**/public';
+## ⚙️ Pré-requisitos
 
-## Uso
-Você deve acessar a pasta *public* do projeto.
+Antes de começar, você precisa ter instalado:
 
-O ideal é criar um ***alias*** específico no servidor que direcione diretamente para a pasta *public*.
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/)
+- Git (opcional, para clonar o repositório)
 
-## Modelo de MODEL
-```php
-<?php
-namespace src\models;
-use \core\Model;
+---
 
-class Usuario extends Model {
+## 📦 Clonando o projeto
 
-}
+```bash
+git clone https://github.com/phroriz/vt_docker_dash.git
+cd vt_docker_dash
 ```
+
+---
+
+## 🛠️ Estrutura do projeto
+
+```text
+vt_docker_dash/
+├── vt_dash/                 # Código da aplicação
+│   ├── public/              # DocumentRoot (index.php)
+│   ├── src/                 # Controllers, Config, Models
+│   ├── core/                # Router, BaseController, etc.
+│   ├── composer.json        # Dependências
+│   └── dashboard.sql        # Dump inicial do banco
+├── docker/
+│   └── php/
+│       ├── Dockerfile       # PHP + Apache + Composer
+│       └── entrypoint.sh    # Instala dependências na inicialização
+├── docker-compose.yml       # Orquestra os containers
+└── README.md
+```
+
+---
+
+## 🐳 Como rodar com Docker
+
+### 1. Subir os containers (PHP + MySQL)
+
+```bash
+docker compose up --build
+```
+
+---
+
+### 2. Instalar as dependências do Composer
+
+Se não forem instaladas automaticamente, rode:
+
+```bash
+docker exec -it phpserver composer install
+```
+
+---
+
+## 🧪 Testando conexão com o banco
+
+Dentro do container PHP:
+
+```bash
+docker exec -it phpserver bash
+php -r "new PDO('mysql:host=db;dbname=dashboard', 'root', 'root'); echo 'Conexão OK';"
+```
+
+---
+
+## 🧹 Comandos úteis
+
+| Comando                         | Descrição                              |
+|----------------------------------|------------------------------------------|
+| `docker compose down`           | Para e remove os containers             |
+| `docker compose up -d`          | Sobe em segundo plano                   |
+| `docker exec -it phpserver bash`| Acessa o container PHP                  |
+| `composer install`              | Instala dependências (dentro do PHP)    |
+
+---
+
+## 🧾 Licença
+
+Este projeto é de uso livre para fins educacionais e internos.

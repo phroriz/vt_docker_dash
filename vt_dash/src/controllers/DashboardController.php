@@ -3,8 +3,9 @@
 namespace src\controllers;
 
 use core\Controller;
-use src\handlers\PowerBiHandler;
-use src\models\PowerBi;
+use src\handlers\CommentHandler;
+use src\handlers\dashHandler;
+use src\handlers\NpsHandler;
 
 class DashboardController extends Controller
 {
@@ -20,11 +21,26 @@ class DashboardController extends Controller
     public function view($args)
     {
         $hash = $args['hash'];
-        $powerbi = PowerBiHandler::getByHash($hash);
+        $dash = dashHandler::getByHash($hash);
+        $comments = CommentHandler::get($dash->id);
+        $score = NpsHandler::score($dash->id);
+        $checkNps = NpsHandler::checkQuest($dash->id, $dash->qtd_access);
 
-        $this->renderLayout('painel', 'home', [
-            'powerbi' => $powerbi
+
+        
+        $this->renderLayout('painel', 'dashboard/view', [
+            'dash' => $dash,
+            'comments' =>$comments,
+            'score'    => $score,
+            'checkNps' => $checkNps
         ], []);
-       
+    
+    }
+
+
+    public function nps(){
+        $input = json_decode(file_get_contents('php://input'), true);
+        $remove = NpsHandler::new($input);
+        return $remove;
     }
 }

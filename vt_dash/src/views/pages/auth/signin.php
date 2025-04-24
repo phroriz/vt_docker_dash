@@ -61,10 +61,9 @@
                 <input type="password" name="password" class="form-control" placeholder="Senha" required>
               </div>
               <div class="d-flex mt-1 justify-content-between">
-                <div class="form-check">
-                  <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" name="remember" checked>
-                  <label class="form-check-label text-muted" for="customCheckc1">Salvar login</label>
-                </div>
+              </div>
+        
+              <div>
                 <h5 class="text-secondary f-w-400">Esqueceu a senha?</h5>
               </div>
               <div class="d-grid mt-4">

@@ -2,6 +2,6 @@
 namespace src\models;
 use \core\Model;
 
-class PowerBi extends Model {
+class ViewUsersGroup extends Model {
 
 }

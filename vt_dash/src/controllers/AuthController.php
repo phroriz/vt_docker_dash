@@ -3,6 +3,7 @@
 namespace src\controllers;
 
 use core\Controller;
+use src\handlers\UserHandler;
 use src\models\User;
 
 class AuthController extends Controller
@@ -18,7 +19,7 @@ class AuthController extends Controller
      */
     public function signin()
     {
-       $this->render('auth/signin');
+        $this->render('auth/signin');
         /*  Passar os dados para a View
         $this->renderLayout('painel', 'projects', [
             'mergedProjects' => $mergedProjects
@@ -26,41 +27,32 @@ class AuthController extends Controller
         */
     }
 
+    public function resetPass()
+    {
+        if(empty($_SESSION['user_id'])){
+            $this->redirect('/auth/signin');
+        } else {
+            $this->render('auth/reset');
+        }
+
+    }
+    public function resetPassLogin()
+    {
+
+        $input = json_decode(file_get_contents('php://input'), true);
+        $update = UserHandler::resetPass($input);
+        return $update;
+       // $this->redirect('/painel');
+
+    }
+    public function logoff()
+    {
+        UserHandler::logoff();
+        $this->redirect('/auth/signin');
+    }
+
     public function login()
     {
-        header('Content-Type: application/json');
-
-        $email = $_POST['email'] ?? '';
-        $password = $_POST['password'] ?? '';
-
-        if (!$email || !$password) {
-            echo json_encode([
-                'status' => 'error',
-                'title' => 'Erro',
-                'message' => 'Preencha todos os campos.'
-            ]);
-            return;
-        }
-
-        $user = User::select()
-            ->where('email', $email)
-            ->where('pass', md5($password))
-            ->one();
-
-        if ($user) {
-            $_SESSION['user'] = $user['id'];
-            echo json_encode([
-                'status' => 'success',
-                'title' => 'Login realizado',
-                'message' => 'Redirecionando...',
-                'redirect' => '/painel'
-            ]);
-        } else {
-            echo json_encode([
-                'status' => 'error',
-                'title' => 'Login inválido',
-                'message' => 'Email ou senha incorretos.'
-            ]);
-        }
+       UserHandler::auth();
     }
 }

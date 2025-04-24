@@ -1,6 +1,12 @@
 {
     "require": {
-        "clancats/hydrahon": "^1.1"
+        "clancats/hydrahon": "^1.1",
+        "google/apiclient": "^2.18",
+        "firebase/php-jwt": "^6.10",
+        "irazasyed/telegram-bot-sdk": "^3.14",
+        "endroid/qr-code": "^6.0",
+        "spomky-labs/otphp": "^11.3",
+        "phpmailer/phpmailer": "^6.9"
     },
     "autoload": {
         "psr-4": {

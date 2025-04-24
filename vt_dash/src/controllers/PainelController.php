@@ -3,8 +3,8 @@
 namespace src\controllers;
 
 use core\Controller;
-use src\handlers\PowerBiHandler;
-use src\models\PowerBi;
+use src\handlers\dashHandler;
+use src\models\dash;
 
 class PainelController extends Controller
 {
