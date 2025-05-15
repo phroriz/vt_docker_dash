@@ -6,6 +6,7 @@ use src\middlewares\AuthMiddleware;
 $router = new Router();
 
 // Rotas públicas
+$router->get('/', 'PainelController@index' , [AuthMiddleware::class]);
 $router->get('/auth/signin', 'AuthController@signin');
 $router->post('/auth/signin/login', 'AuthController@login' );
 $router->get('/auth/signin/login/first', 'AuthController@resetPass' );

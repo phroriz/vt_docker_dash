@@ -22,4 +22,9 @@ class PainelController extends Controller
         $this->renderLayout('painel', 'index');
        
     }
+
+    public function index()
+    {
+        $this->redirect('/painel');
+    }
 }
