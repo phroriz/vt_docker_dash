@@ -7,13 +7,16 @@ services:
       dockerfile: ./docker/php/Dockerfile
     container_name: phpserver
     ports:
-      - "8083:80"
+      - "8070:80"
     volumes:
       - ./vt_dash:/var/www/html
     working_dir: /var/www/html
     restart: always
     depends_on:
       - db
+    environment:
+      DB_HOST: db            
+      DB_PORT: 3306          
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
@@ -28,7 +31,7 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./vt_dash/dashboard.sql:/docker-entrypoint-initdb.d/dashboard.sql:ro  # ✅ aqui
+      - ./vt_dash/dashboard.sql:/docker-entrypoint-initdb.d/dashboard.sql:ro
 
 volumes:
   mysql_data:

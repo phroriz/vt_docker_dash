@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/04/2025 às 22:28
+-- Tempo de geração: 15/05/2025 às 22:23
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -55,14 +55,6 @@ CREATE TABLE `comments` (
   `created_at` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `comments`
---
-
-INSERT INTO `comments` (`id`, `dashs_id`, `parent_id`, `user_id`, `text`, `created_at`) VALUES
-(8, 2, NULL, 1, 'teaste', '2025-04-15 12:03:28'),
-(9, 1, NULL, 1, 'to com duvida', '2025-04-15 16:00:26');
-
 -- --------------------------------------------------------
 
 --
@@ -89,8 +81,8 @@ CREATE TABLE `dashs` (
 --
 
 INSERT INTO `dashs` (`id`, `hash`, `groups_id`, `title`, `description`, `src`, `status`, `created_at`, `updated_at`, `finshed_at`, `qtd_access`, `last_access`) VALUES
-(1, '698dc19d489c4e4db73e28a713eab07b', 1, 'Ranking de Projetos', 'Teste 123', 'https://app.powerbi.com/view?r=eyJrIjoiY2Y4ZjlhODEtMzc1My00MGMyLWIyOGMtNmZlODkxMGQ2NzlhIiwidCI6IjA5N2I4ZjkwLTU2NjAtNDRkNi05NzBjLTZjZjcyMTkzOWU1NCJ9', 1, '2025-03-26 19:48:19', '2025-04-15 20:56:56', NULL, 0000200, '2025-04-16 01:56:56'),
-(2, 'fc6f89cfbad195c7af74806827c30e26', 1, 'DRE GERENCIAL', 'aaaaaaaaaa', 'https://app.powerbi.com/view?r=eyJrIjoiYzM3NGU0ZjMtYjVkMy00Y2QwLWEyNDktMzUzYzVmN2UwMDlkIiwidCI6IjA5N2I4ZjkwLTU2NjAtNDRkNi05NzBjLTZjZjcyMTkzOWU1NCJ9', 1, '2025-02-14 20:23:21', '2025-04-15 20:56:50', NULL, 0000034, '2025-04-16 01:56:50'),
+(1, '698dc19d489c4e4db73e28a713eab07b', 1, 'Ranking de Projetos', 'Teste 123', 'https://app.powerbi.com/view?r=eyJrIjoiY2Y4ZjlhODEtMzc1My00MGMyLWIyOGMtNmZlODkxMGQ2NzlhIiwidCI6IjA5N2I4ZjkwLTU2NjAtNDRkNi05NzBjLTZjZjcyMTkzOWU1NCJ9', 1, '2025-03-26 19:48:19', '2025-05-15 20:20:03', NULL, 0000205, '2025-05-16 01:20:03'),
+(2, 'fc6f89cfbad195c7af74806827c30e26', 1, 'DRE GERENCIAL', 'aaaaaaaaaa', 'https://app.powerbi.com/view?r=eyJrIjoiYzM3NGU0ZjMtYjVkMy00Y2QwLWEyNDktMzUzYzVmN2UwMDlkIiwidCI6IjA5N2I4ZjkwLTU2NjAtNDRkNi05NzBjLTZjZjcyMTkzOWU1NCJ9', 1, '2025-02-14 20:23:21', '2025-05-15 20:18:49', NULL, 0000039, '2025-05-16 01:18:49'),
 (6, 'c793ec9d25353dd98f53ccde92cd5d7165ae2479', 1, 'teste 123', 'aaa', 'https://app.powerbi.com/view?r=eyJrIjoiYzM3NGU0ZjMtYjVkMy00Y2QwLWEyNDktMzUzYzVmN2UwMDlkIiwidCI6IjA5N2I4ZjkwLTU2NjAtNDRkNi05NzBjLTZjZjcyMTkzOWU1NCJ9', 0, '2025-04-11 18:17:30', '2025-04-14 13:35:24', NULL, 0000000, '2025-04-14 19:47:37'),
 (7, '36a6813b819d1a4696a392714e6af2872622bf18', 4, 't', 'a', 'a', 0, '2025-04-14 13:43:34', '2025-04-14 13:44:00', NULL, 0000000, '2025-04-14 19:47:37'),
 (8, '9b62d99485dc914bf469551776e9613af68a09db', 3, 'aaaa', 'aaa', 'a123', 1, '2025-04-15 18:23:17', '2025-04-15 20:56:54', NULL, 0000020, '2025-04-16 01:56:54');
@@ -140,7 +132,9 @@ CREATE TABLE `ratings` (
 
 INSERT INTO `ratings` (`id`, `user_id`, `dashs_id`, `score`, `suggestion`, `submitted_at`) VALUES
 (13, 1, 1, 3, 'uma bosta', '2025-04-15 21:00:16'),
-(14, 1, 2, 5, '', '2025-04-15 21:02:38');
+(14, 1, 2, 5, '', '2025-04-15 21:02:38'),
+(15, 1, 2, 5, '', '2025-05-15 22:11:54'),
+(16, 1, 1, 5, '', '2025-05-15 22:18:41');
 
 -- --------------------------------------------------------
 
@@ -165,8 +159,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `pass`, `status`, `created_at`, `updated_at`, `fisth_login`, `last_login`) VALUES
-(1, 'Pedro', 'pedro.roriz@voitconsultoria.com.br', '$2y$10$mG3hd8AO5LkvTl8YfQH4nOd67HRyj975jzqMMD1.PQBVMpCn86skW', 2, '2025-04-04 17:54:23', '2025-04-16 16:32:23', '2025-04-15 17:10:16', '2025-04-16 21:32:23'),
-(11, 'aa', 'teste@aa.cc', '$2y$10$989VkNk6yD2iy787zhbpFOrw66vd8E9n1Lf3Whd86Hw3GPuNYuCXW', 2, '2025-04-11 16:20:22', '2025-04-16 10:41:03', '2025-04-16 15:41:03', '2025-04-16 15:12:46'),
+(1, 'Admin', 'admin@voit.tech', '$2y$10$989VkNk6yD2iy787zhbpFOrw66vd8E9n1Lf3Whd86Hw3GPuNYuCXW', 2, '2025-04-04 17:54:23', '2025-05-15 17:18:21', '2025-04-15 17:10:16', '2025-05-15 22:18:21'),
+(11, 'aa', 'teste@aa.cc', '$2y$10$989VkNk6yD2iy787zhbpFOrw66vd8E9n1Lf3Whd86Hw3GPuNYuCXW', 2, '2025-04-11 16:20:22', '2025-05-15 17:10:07', '2025-04-16 15:41:03', '2025-05-15 22:10:07'),
 (13, 'ava', 'ava@ava.cc', '$2y$10$ffa5RlXikDpjukQpB8lqaeZFxO/ce.jP1k17FUtUyGgqa2vYChmP6', 2, '2025-04-16 16:44:13', '2025-04-16 16:44:33', '2025-04-16 21:44:33', '2025-04-16 16:44:13');
 
 -- --------------------------------------------------------
@@ -331,7 +325,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT de tabela `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `dashs`
@@ -349,7 +343,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de tabela `ratings`
 --
 ALTER TABLE `ratings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `users`
