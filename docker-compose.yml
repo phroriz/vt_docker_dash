@@ -16,7 +16,7 @@ services:
       - db
     environment:
       DB_HOST: db            
-      DB_PORT: 3306          
+      DB_PORT: 3306       
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
