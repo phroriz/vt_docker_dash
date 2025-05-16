@@ -28,7 +28,7 @@ services:
       MYSQL_DATABASE: dashboard
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3307:3306"
+      - "3317:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./vt_dash/dashboard.sql:/docker-entrypoint-initdb.d/dashboard.sql:ro
