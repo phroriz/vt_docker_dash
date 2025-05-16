@@ -159,7 +159,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `pass`, `status`, `created_at`, `updated_at`, `fisth_login`, `last_login`) VALUES
-(1, 'Admin', 'admin@voit.tech', '$2y$10$989VkNk6yD2iy787zhbpFOrw66vd8E9n1Lf3Whd86Hw3GPuNYuCXW', 2, '2025-04-04 17:54:23', '2025-05-15 17:18:21', '2025-04-15 17:10:16', '2025-05-15 22:18:21'),
+(1, 'Admin', 'admin@voit.tech', '$2y$10$5zBKsHV42J15IWOvV/AsRup/Y4eCCzRugOyyhW1M/T4mqiEtpDqL2', 1, '2025-04-04 17:54:23', '2025-05-15 17:18:21', '2025-04-15 17:10:16', '2025-05-15 22:18:21'),
 (11, 'aa', 'teste@aa.cc', '$2y$10$989VkNk6yD2iy787zhbpFOrw66vd8E9n1Lf3Whd86Hw3GPuNYuCXW', 2, '2025-04-11 16:20:22', '2025-05-15 17:10:07', '2025-04-16 15:41:03', '2025-05-15 22:10:07'),
 (13, 'ava', 'ava@ava.cc', '$2y$10$ffa5RlXikDpjukQpB8lqaeZFxO/ce.jP1k17FUtUyGgqa2vYChmP6', 2, '2025-04-16 16:44:13', '2025-04-16 16:44:33', '2025-04-16 21:44:33', '2025-04-16 16:44:13');
 
