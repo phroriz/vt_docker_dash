@@ -3,7 +3,7 @@
 <!-- [Head] start -->
 
 <head>
-  <title>Reset Password | Mantis Bootstrap 5 Admin Template</title>
+  <title>VT- Senha</title>
   <!-- [Meta] -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">

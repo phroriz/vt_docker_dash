@@ -13,7 +13,7 @@ $gravatarUrl = 'https://www.gravatar.com/avatar/' . md5($email) . '?s=100&d=iden
 <!-- [Head] start -->
 
 <head>
-  <title>{{page_name}}</title>
+  <title>VT- Painel</title>
   <!-- [Meta] -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
