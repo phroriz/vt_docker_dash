@@ -15,13 +15,13 @@ services:
     depends_on:
       - db                             # Aguarda o container do banco iniciar
     environment:
-      DB_HOST: db                      # Nome do container do banco de dados
-      DB_PORT: 3306                    # Porta interna do MySQL
+      DB_HOST: db
+      DB_PORT: 3306
       DB_NAME: dashboard
       DB_USER: root
       DB_PASSWORD: root
     extra_hosts:
-      - "host.docker.internal:host-gateway"  # Para chamadas localhost externas
+      - "host.docker.internal:host-gateway"  # Necessário para acessar host local em ambientes Docker/Linux
 
   db:
     image: mysql:8.0
@@ -30,13 +30,15 @@ services:
     environment:
       MYSQL_DATABASE: dashboard
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
       MYSQL_CHARSET: utf8mb4
       MYSQL_COLLATION: utf8mb4_unicode_ci
     ports:
-      - "3317:3306"                    # Acesso externo ao MySQL (ex: localhost:3317)
+      - "3317:3306"
     volumes:
-      - mysql_data:/var/lib/mysql     # Persistência dos dados
-      - ./vt_dash/dashboard.sql:/docker-entrypoint-initdb.d/dashboard.sql:ro  # Carga inicial do banco
+      - mysql_data:/var/lib/mysql
+      - ./vt_dash/dashboard.sql:/docker-entrypoint-initdb.d/dashboard.sql:ro
 
 volumes:
   mysql_data:
