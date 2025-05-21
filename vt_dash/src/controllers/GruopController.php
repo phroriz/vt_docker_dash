@@ -4,7 +4,7 @@ namespace src\controllers;
 
 use core\Controller;
 use src\handlers\GroupHandler;
-use src\handlers\dashHandler;
+use src\handlers\DashHandler;
 use src\handlers\UserHandler;
 use src\models\dash;
 

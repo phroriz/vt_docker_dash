@@ -6,7 +6,7 @@ use core\Controller;
 use Google\Service\YouTube\CommentThread;
 use src\handlers\CommentHandler;
 use src\handlers\GroupHandler;
-use src\handlers\dashHandler;
+use src\handlers\DashHandler;
 use src\handlers\UserHandler;
 use src\models\dash;
 

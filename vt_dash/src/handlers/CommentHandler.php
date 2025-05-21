@@ -19,7 +19,7 @@ class CommentHandler
         $comment = trim($input['comment']);
         $groupHash = $input['group'];
         $user = UserHandler::checkLogin();
-        $dash = dashHandler::getByHash($input['dash']);
+        $dash = DashHandler::getByHash($input['dash']);
 
         if (!$dash) {
             http_response_code(404);

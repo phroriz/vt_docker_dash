@@ -1,7 +1,7 @@
 <?php
 
 use src\handlers\GroupHandler;
-use src\handlers\dashHandler;
+use src\handlers\DashHandler;
 use src\handlers\UserHandler;
 $user = UserHandler::user();
 $email = trim(strtolower($user->email));
@@ -93,7 +93,7 @@ $gravatarUrl = 'https://www.gravatar.com/avatar/' . md5($email) . '?s=100&d=iden
               <label><?= $group['group_name'] ?></label>
               <i class="ti ti-dashboard"></i>
             </li>
-            <?php foreach (dashHandler::getAllForMenu($group['group_id']) as $dash): ?>
+            <?php foreach (DashHandler::getAllForMenu($group['group_id']) as $dash): ?>
               <li class="pc-item">
                 <a href="<?= $base . '/painel/dashboard/view/' . $dash['hash'] ?>" class="pc-link">
                   <?php

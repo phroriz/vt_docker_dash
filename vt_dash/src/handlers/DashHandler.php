@@ -5,7 +5,7 @@ namespace src\handlers;
 use src\models\dash;
 use src\models\ViewUsersGroup;
 
-class dashHandler
+class DashHandler
 {
 // Retorna um único resultado do Power BI pelo hash, validando se o usuário tem acesso ao grupo
 public static function getByHash(string $hash)

@@ -4,7 +4,7 @@ namespace src\controllers;
 
 use core\Controller;
 use src\handlers\CommentHandler;
-use src\handlers\dashHandler;
+use src\handlers\DashHandler;
 use src\handlers\NpsHandler;
 
 class DashboardController extends Controller
@@ -21,7 +21,7 @@ class DashboardController extends Controller
     public function view($args)
     {
         $hash = $args['hash'];
-        $dash = dashHandler::getByHash($hash);
+        $dash = DashHandler::getByHash($hash);
         $comments = CommentHandler::get($dash->id);
         $score = NpsHandler::score($dash->id);
         $checkNps = NpsHandler::checkQuest($dash->id, $dash->qtd_access);

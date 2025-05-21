@@ -18,7 +18,7 @@ class NpsHandler
             exit;
         }
 
-        $dash = dashHandler::getByHash($input['hash']);
+        $dash = DashHandler::getByHash($input['hash']);
 
         if (!$dash) {
             http_response_code(404);

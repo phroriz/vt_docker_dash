@@ -3,7 +3,7 @@
 namespace src\controllers;
 
 use core\Controller;
-use src\handlers\dashHandler;
+use src\handlers\DashHandler;
 use src\models\dash;
 
 class PainelController extends Controller
