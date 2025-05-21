@@ -31,4 +31,4 @@ RUN chmod +x /wait-for-mysql.sh /entrypoint.sh
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENTRYPOINT ["/entrypoint.sh"]
-
+CMD ["/wait-for-mysql.sh"]
