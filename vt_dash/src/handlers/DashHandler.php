@@ -29,7 +29,7 @@ public static function getByHash(string $hash)
         ->where('group_status', 1)
         ->where(function ($q) {
             $q->where('group_expires', '>=', date('Y-m-d'))
-              ->orWhere('group_expires', '0000-00-00'); // Data sem expiração
+            ->orWhereNull('group_expires');
         })
         ->get();
 
