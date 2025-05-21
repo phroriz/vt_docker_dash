@@ -6,7 +6,7 @@ use core\Controller;
 use src\handlers\GroupHandler;
 use src\handlers\DashHandler;
 use src\handlers\UserHandler;
-use src\models\dash;
+use src\models\Dash;
 
 class GruopController extends Controller
 {

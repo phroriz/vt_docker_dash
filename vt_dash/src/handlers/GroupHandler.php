@@ -3,7 +3,7 @@
 namespace src\handlers;
 
 use src\models\Group;
-use src\models\dash;
+use src\models\Dash;
 use src\models\UsersGroup;
 use src\models\ViewUserMenu;
 use src\models\ViewUsersGroup;
@@ -96,7 +96,7 @@ class GroupHandler
 
     public static function getDashboardAll($idGroup)
     {
-        return dash::select()
+        return Dash::select()
             ->where('groups_id', $idGroup)
             ->get();
     }
@@ -105,7 +105,7 @@ class GroupHandler
         $raw = bin2hex(random_bytes(16)) . uniqid('', true) . time();
         $hash = sha1($raw);
 
-        return dash::insert([
+        return Dash::insert([
             'hash' => $hash,
             'groups_id' => $data['group'],
             'title' => $data['title'],
@@ -115,13 +115,13 @@ class GroupHandler
     }
     public static function getDashboardById($hash)
     {
-        return dash::select()
+        return Dash::select()
             ->where('hash', $hash)
             ->get();
     }
     public static function updateDashboardByHash($data)
     {
-        return dash::update()
+        return Dash::update()
             ->where('hash', $data['hash'])
             ->set('title', $data['title'])
             ->set('description', $data['description'])

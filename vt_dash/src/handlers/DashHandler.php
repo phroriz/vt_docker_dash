@@ -2,7 +2,7 @@
 
 namespace src\handlers;
 
-use src\models\dash;
+use src\models\Dash;
 use src\models\ViewUsersGroup;
 
 class DashHandler
@@ -14,7 +14,7 @@ public static function getByHash(string $hash)
     $user = UserHandler::checkLogin();
 
     // Busca o dashboard do Power BI pelo hash
-    $dash = (object) dash::select()
+    $dash = (object) Dash::select()
         ->where('hash', $hash)
         ->one();
 
@@ -52,7 +52,7 @@ public static function getByHash(string $hash)
     // Retorna todos para o menu
     public static function getAllForMenu(string $idGroup): array
     {
-        return dash::select()
+        return Dash::select()
             ->where('groups_id', $idGroup)
             ->where('status', 1)
             ->orderBy('title', 'asc')

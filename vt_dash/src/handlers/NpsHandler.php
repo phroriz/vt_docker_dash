@@ -2,7 +2,7 @@
 
 namespace src\handlers;
 
-use src\models\dash;
+use src\models\Dash;
 use src\models\Rating;
 use src\models\viewNpsDashboard;
 use src\models\ViewUsersGroup;

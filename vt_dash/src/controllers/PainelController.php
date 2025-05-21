@@ -4,7 +4,7 @@ namespace src\controllers;
 
 use core\Controller;
 use src\handlers\DashHandler;
-use src\models\dash;
+use src\models\Dash;
 
 class PainelController extends Controller
 {
