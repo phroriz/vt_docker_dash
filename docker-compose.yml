@@ -7,21 +7,18 @@ services:
       dockerfile: ./docker/php/Dockerfile
     container_name: phpserver
     ports:
-      - "8070:80"                       # Acesso externo via navegador
+      - "8070:80"
     volumes:
-      - ./vt_dash:/var/www/html        # Código-fonte da aplicação PHP
+      - ./vt_dash:/var/www/html
     working_dir: /var/www/html
     restart: always
     depends_on:
-      - db                             # Aguarda o container do banco iniciar
+      - db
     environment:
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_NAME: dashboard
-      DB_USER: root
-      DB_PASSWORD: root
+      DB_HOST: db            
+      DB_PORT: 3306       
     extra_hosts:
-      - "host.docker.internal:host-gateway"  # Necessário para acessar host local em ambientes Docker/Linux
+      - "host.docker.internal:host-gateway"
 
   db:
     image: mysql:8.0
@@ -30,10 +27,6 @@ services:
     environment:
       MYSQL_DATABASE: dashboard
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_CHARSET: utf8mb4
-      MYSQL_COLLATION: utf8mb4_unicode_ci
     ports:
       - "3317:3306"
     volumes:
