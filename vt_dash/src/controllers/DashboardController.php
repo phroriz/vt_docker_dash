@@ -22,20 +22,30 @@ class DashboardController extends Controller
     {
         $hash = $args['hash'];
         $dash = DashHandler::getByHash($hash);
+    
+        if (!$dash) {
+            // Renderiza a mesma view, mas com dados vazios para exibir a mensagem de erro
+            $this->renderLayout('painel', 'dashboard/view', [
+                'dash' => null,
+                'comments' => [],
+                'score' => null,
+                'checkNps' => false
+            ], []);
+            return;
+        }
+    
         $comments = CommentHandler::get($dash->id);
         $score = NpsHandler::score($dash->id);
         $checkNps = NpsHandler::checkQuest($dash->id, $dash->qtd_access);
-
-
-        
+    
         $this->renderLayout('painel', 'dashboard/view', [
             'dash' => $dash,
-            'comments' =>$comments,
-            'score'    => $score,
+            'comments' => $comments,
+            'score' => $score,
             'checkNps' => $checkNps
         ], []);
-    
-    }
+    }   
+
 
 
     public function nps(){
